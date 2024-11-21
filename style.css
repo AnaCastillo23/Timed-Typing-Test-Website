@@ -112,23 +112,24 @@ Layout
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://cdn.glitch.global/6c1c879a-421e-45ac-b2c1-a82001e5cfd0/site_background.png?v=1732220232535');
+    background: #1E2C35;
 }
 
 .masthead {
     padding: 1em 2em;
-    background-color: #0D1B2E;
     color: white;
 }
 
 .masthead h1 {
-    text-align: center;
+    text-align: left;
+    font-size: 30px;
+  font-family:"Poppins", sans-serif; 
 }
 
 .intro {
     padding: 2em 2em;
     color: #ffffff;
-    background: #429890;
+    background: #2B3D49;
 }
 
 
@@ -180,10 +181,12 @@ body {
 }
 
 #reset {
-    padding: .5em 1em;
-    color: #E95D0F;
-    background-image: linear-gradient(to bottom right, #2992d6, #7634e7);
-    border: 10px solid white;
+    padding-left: 30px;
+    padding-right: 30px;
+    color: black;
+    background: #DAFE73;
+    border: none;
+  border-radius: 10px;
 }
 
 #reset:hover {
