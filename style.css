@@ -112,6 +112,7 @@ Layout
 body {
     margin: 0;
     padding: 0;
+    background-image: url('https://cdn.glitch.global/6c1c879a-421e-45ac-b2c1-a82001e5cfd0/site_background.png?v=1732220232535');
 }
 
 .masthead {
@@ -181,8 +182,8 @@ body {
 #reset {
     padding: .5em 1em;
     color: #E95D0F;
-    background: white ;
-    border: 10px solid #E95D0F;
+    background-image: linear-gradient(to bottom right, #2992d6, #7634e7);
+    border: 10px solid white;
 }
 
 #reset:hover {
