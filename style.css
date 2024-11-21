@@ -6,8 +6,6 @@ body,
 input,
 select,
 textarea {
-	font-family: 'Source Sans Pro', 'Helvetica', Arial, sans-serif;
-	font-size: 18px;
 	line-height: 1.5;
 }
 
@@ -28,6 +26,10 @@ h6 {
 
 p {
 	margin-bottom: 1.5em;
+}
+
+.text-to-test {
+  
 }
 
 b,
@@ -181,15 +183,17 @@ body {
 }
 
 #reset {
-    padding-left: 30px;
-    padding-right: 30px;
     color: black;
     background: #DAFE73;
     border: none;
-  border-radius: 10px;
+    border-radius: 10px;
+    padding: .5em 1em;
+    transition: background-color 0.8s;
+  box-shadow: 0px 10px 15px rgba(0,0,0,0.8);
 }
 
 #reset:hover {
-    color: white;
-    background-color: #E95D0F;
+    color: black;
+    background-color: #A2BE51;
+    cursor: pointer;
 }
