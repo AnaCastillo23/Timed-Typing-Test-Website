@@ -26,10 +26,13 @@ h6 {
 
 p {
 	margin-bottom: 1.5em;
+  font-family: "Poppins", sans-serif;
 }
 
 .text-to-test {
-  
+  font-family: "Geist Mono", monospace;
+  color: #8e8b93;
+  font-size: 2em;
 }
 
 b,
@@ -132,6 +135,8 @@ body {
     padding: 2em 2em;
     color: #ffffff;
     background: #2B3D49;
+  padding-top: 75px;
+   padding-bottom: 75px;
 }
 
 
@@ -147,23 +152,18 @@ body {
 }
 
 .test-wrapper {
-    border: 10px solid grey;
-    border-radius: 10px;
+    box-radius: 10px;
+    display: flex;
 }
 
 #origin-text {
     margin: 1em 0;
     padding: 1em 1em 0;
-    background-color: #ededed;
 }
 
 #origin-text p {
     margin: 0;
     padding-bottom: 1em;
-}
-
-.test-wrapper {
-    display: flex;
 }
 
 .test-wrapper textarea {
@@ -178,8 +178,10 @@ body {
 }
 
 .timer {
-    font-size: 3em;
-    font-weight: bold;
+    font-size: 2em;
+    font-weight: normal;
+    font-family: "Geist Mono", monospace;
+  color: white;
 }
 
 #reset {
