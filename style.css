@@ -152,7 +152,8 @@ body {
 }
 
 .test-wrapper {
-    box-radius: 10px;
+    border: 10px solid grey;
+    border-radius: 10px;
     display: flex;
 }
 
