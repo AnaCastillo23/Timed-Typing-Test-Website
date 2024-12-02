@@ -28,14 +28,17 @@ function start() {
 
 function stop() {
   //*************Match the text entered with the provided text on the page:*************
-    //If the values of both the user input and the test text are strictly the same (even case sensitivity is checked) then stop the timer
-    // i used testArea.value to access the actual value inside of the test-area HTML element
-    //originText already contains the value of type "String" from the paragraph element in which the test text is found in
+    //If the values of both the user input and the test text are strictly the same (even case sensitivity is checked) then stop the timer (set isRunning = false)
+    // I used testArea.value to access the actual value inside of the test-area HTML element.
+    //originText already contains a value of type "String" from the paragraph element in which the test text is found in.
     if (testArea.value === originText && isRunning) {
       testWrapper.style.border = "10px solid #DAFE73"; //If both the user input text and the test text match, border displays a green color
+      //Clear the current time interval
       clearInterval(timer);
+      //Set an elapsed time which is the current time minus the time that the test was started on
       elapsedTime = Date.now() - startTime;
       isRunning = false;
+      testArea.blur(); //Used to remove focus in the testArea for when user has succesfully typed the correct input. Prevents accidental keyboard click when test is done
     }
 }
 
@@ -86,12 +89,11 @@ function checkCharacterMatching() {
   for (let i = 0; i < userInput.length; i++) {
     if (userInput[i] === originText[i]) { //If both texts match, we turn the box's border color to #DAFE73 (green to signify a match in the text) 
       testWrapper.style.border = "10px solid #DAFE73";
-    } else { //Else, we turn the box's border color to #ff5757(green to signify a match in the text) 
+    } else { //Else, we turn the box's border color to #ff5757(red to signify no match in the text) 
       testWrapper.style.border = "10px solid #ff5757";
     }
   }
-  
-  //For handling if all the characters match
+  //For handling if all the characters match, then we must call the stop() function to signify user is done with the test
   if (userInput === originText) {
     stop();
   }
