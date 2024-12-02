@@ -29,13 +29,13 @@ function start() {
 function stop() {
   //*************Match the text entered with the provided text on the page:*************
     //If the values of both the user input and the test text are strictly the same (even case sensitivity is checked) then stop the timer
+    // i used testArea.value to access the actual value inside of the test-area HTML element
+    //originText already contains the value of type "String" from the paragraph element in which the test text is found in
     if (testArea.value === originText && isRunning) {
-      testWrapper.style.border = "10px solid #DAFE73";
+      testWrapper.style.border = "10px solid #DAFE73"; //If both the user input text and the test text match, border displays a green color
       clearInterval(timer);
       elapsedTime = Date.now() - startTime;
       isRunning = false;
-    } else {
-      testWrapper.style.border = "10px solid #ff5757";
     }
 }
 
@@ -50,6 +50,8 @@ function reset() {
   theTimer.textContent = "00:00:00";
   //Resets the value of the input that user entered in case user finished typing text or they exited out of tying test by clicking the "Start Over" button
   testArea.value = "";
+  //Reset the border color to gray when resetButton is pressed
+  testWrapper.style.border = "10px solid grey";
 }
 
 function update() {
@@ -75,11 +77,27 @@ function update() {
 }
 
 //*************Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)*************
+//We will need to check text matching character by character
+function checkCharacterMatching() {
+  let userInput = testArea.value;
+  let correctInput = true;
+  
+  //Use a loop to traverse thru the characters of the userInput to compare with the test text
+  for (let i = 0; i < )
+} 
+
+
+
+
+
+
+
+
 
 //*************Event listeners for keyboard input and the reset button:*************
 testArea.addEventListener('input', function() {
   start(); //calls the start() function to start the timer
-  stop(); //calls the stop function once both the user input text and test text are an exact match
+  checkCharacterMatching(); //calls the checkCharacterMatching() function to check character by character the user input text with the test text
 });
 
 resetButton.addEventListener('click', reset); //calls the reset() function once the resetButton is pressed
