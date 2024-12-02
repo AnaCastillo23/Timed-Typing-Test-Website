@@ -20,6 +20,12 @@ let elapsedTime = 0;
 let isRunning = false;
 
 function update() {
+  //Access what is the date right now and calculate the elapsed time
+  const currentTime = Date.now();
+  elapsedTime = currentTime - startTime;
+  
+  //Convert elapsedTime to a readable format (minute/second/hundredths)
+  let minutes = elapsedTime / (1000 * 60) % 60;
   
 }
 
@@ -35,9 +41,11 @@ function start() {
   //Need to check if the stopwatch is currently running. If not, we need to set the start time.
   if (!isRunning) {
     startTime = Date.now() - elapsedTime;
+    //Set timer equal to the setInterval() function
+      //Call the update() function every 10 milliseconds
+    timer = setInterval(update, 10);
+    isRunning = true;
   }
-  
-  console.log(startTime);
 }
 
 // Reset everything:
@@ -46,8 +54,7 @@ function reset() {
 }
 
 // Event listeners for keyboard input and the reset button:
-testArea.
-resetButton.addEventListener("click", reset());
-
+testArea.addEventListener('keydown', start());
+resetButton.addEventListener('click', reset());
 
 //Store best times and display the top three high scores:
