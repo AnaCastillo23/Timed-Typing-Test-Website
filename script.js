@@ -78,6 +78,11 @@ function update() {
   
   //Change the display's content by accessing the textContent of it
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
+  
+  let typingTime = theTimer.textContent;
+  storeBestTimes(typingTime);
+  displayBestTimes()
+  
 }
 
 //*************Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)*************
@@ -112,6 +117,22 @@ resetButton.addEventListener('click', reset); //calls the reset() function once 
 
 
 //Function to save the best times using the local storage
-function storeBestTimes() {
+function storeBestTimes(time) {
+  let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
+  bestTimes.push(time);
+  bestTimes.sort((a,b) => a - b)
+  bestTimes = bestTimes.slice(0,3);
+  localStorage.setItem("bestTimes", JSON.stringify(bestTimes));  
+}
+
+function displayBestTimes() {
+  let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
+  let bestTimesList = document.getElementById("bestTimesList");
+  bestTimesList.innerHTML = "";
   
+  for (let time of bestTimes) {
+    let listItem = document.createElement("li");
+    listItem.textContent = time;
+    bestTimesList.appendChild(listItem);
+  }
 }
