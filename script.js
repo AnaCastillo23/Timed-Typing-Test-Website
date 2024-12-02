@@ -124,6 +124,7 @@ function storeBestTimes(time) {
   localStorage.setItem("bestTimes", JSON.stringify(bestTimes));
 }
 
+//Function to 
 function displayBestTimes() {
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
   let bestTimesList = document.getElementById("bestTimesList");
