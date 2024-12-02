@@ -3,30 +3,18 @@ const testArea = document.querySelector("#test-area");
 const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
 
-// Add leading zero to numbers 9 or below (purely for aesthetics):
-
-
-// Run a standard minute/second/hundredths timer:
+//*************Run a standard minute/second/hundredths timer:*************
   //Source code inspiration: https://youtu.be/d8-LGhKtzRw?si=O8R5Pxtvj2TZ1toP
 //Get ID of the display and store a reference to it
 const theTimer = document.querySelector(".timer");
-
 //Create a clock that will hold the ID of the interval so we can keep track of it
 let timer = null; //has no value here
-
 let startTime = 0;
 let elapsedTime = 0;
 //Set to a boolean value where if the clock is running, we set it to true. False by default
 let isRunning = false;
 
-
-// Match the text entered with the provided text on the page:
-
-
-  //Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)
-
-
-// Start the timer:
+//Start the timer:
 function start() {
   //Need to check if the stopwatch is currently running. If not, we need to set the start time.
   if (!isRunning) {
@@ -43,7 +31,6 @@ function reset() {
   
 }
 
-
 function update() {
   //Access what is the date right now and calculate the elapsed time
   const currentTime = Date.now();
@@ -55,12 +42,24 @@ function update() {
   //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
   let milliseconds = Math.floor(elapsedTime % 1000 / 10);
   
+  //*************Add leading zero to numbers 9 or below (purely for aesthetics):*************
+  //Convert minutes, seconds and milliseconds into a string before displaying it:
+    //Typecast minutes, seconds and milliseconds as a string, use the padStart method a
+  minutes = String(minutes).padStart(2,"0");
+  
+  
+  
+  
   //Change the display's content by accessing the textContent of it
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
 }
 
-// Event listeners for keyboard input and the reset button:
-testArea.addEventListener('keydown', start());
-resetButton.addEventListener('click', reset());
+//*************Match the text entered with the provided text on the page:*************
 
-//Store best times and display the top three high scores:
+  //Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)
+
+//*************Event listeners for keyboard input and the reset button:*************
+testArea.addEventListener('keydown', start);
+resetButton.addEventListener('click', reset);
+
+//*************Store best times and display the top three high scores:*************
