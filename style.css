@@ -32,12 +32,13 @@ h6 {
 	clear: both;
 }
 
-p, h4 {
+h1, p, h4 {
 	margin-bottom: 1.5em;
   font-family: "Poppins", sans-serif;
   color: white;
   font-weight: normal;
 }
+
 
 .text-to-test {
   font-family: "Geist Mono", monospace;
@@ -149,7 +150,6 @@ body {
    padding-bottom: 75px;
 }
 
-
 .intro p,
 .test-area {
     margin: 0 auto;
@@ -212,7 +212,6 @@ body {
     cursor: pointer;
 }
 
-
 .legend-item {
   display: inline-flex;
   align-items: center;
@@ -227,6 +226,18 @@ body {
   background-color: #555555;
   margin-right: 5px;
   box-shadow: 0px 5px 10px rgba(0,0,0,0.8);
+}
+
+#not-started-square {
+   background-color: gray;
+}
+
+#correct-square {
+  background-color: #DAFE73;
+}
+
+#incorrect-square {
+  background-color: #ff5757;
 }
 
 .legend-item-title {
