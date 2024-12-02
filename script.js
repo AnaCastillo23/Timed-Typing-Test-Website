@@ -19,16 +19,6 @@ let elapsedTime = 0;
 //Set to a boolean value where if the clock is running, we set it to true. False by default
 let isRunning = false;
 
-function update() {
-  //Access what is the date right now and calculate the elapsed time
-  const currentTime = Date.now();
-  elapsedTime = currentTime - startTime;
-  
-  //Convert elapsedTime to a readable format (minute/second/hundredths)
-  let minutes = elapsedTime / (1000 * 60) % 60;
-  
-}
-
 
 // Match the text entered with the provided text on the page:
 
@@ -51,6 +41,22 @@ function start() {
 // Reset everything:
 function reset() {
   
+}
+
+
+function update() {
+  //Access what is the date right now and calculate the elapsed time
+  const currentTime = Date.now();
+  elapsedTime = currentTime - startTime;
+  
+  //Convert elapsedTime to a readable format (minute/second/hundredths)
+  let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+  let seconds = Math.floor(elapsedTime / 1000 % 60);
+  //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
+  let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+  
+  //Change the display's content by accessing the textContent of it
+  theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
 }
 
 // Event listeners for keyboard input and the reset button:
