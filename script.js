@@ -11,7 +11,11 @@ const theTimer = document.querySelector(".timer");
 // Run a standard minute/second/hundredths timer:
 
 
+
 // Match the text entered with the provided text on the page:
+
+
+  //Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)
 
 
 // Start the timer:
@@ -21,3 +25,6 @@ const theTimer = document.querySelector(".timer");
 
 
 // Event listeners for keyboard input and the reset button:
+
+
+//Store best times and display the top three high scores:
