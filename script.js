@@ -26,9 +26,22 @@ function start() {
   }
 }
 
+function stop() {
+  //Check if the test text matches with the entered keyboard text to stop timer
+  if (originText.textContent = testArea.textContent && isRunning) {
+    clearInterval(timer);
+    elapsedTime = Date.now() - startTime;
+    isRunning = false;
+  }
+}
 // Reset everything:
 function reset() {
-  
+  //Clear the timer
+  clearInterval(timer);
+  startTime = 0;
+  elapsedTime = 0;
+  isRunning = false;
+  theTimer.textContent = "00:00:00";
 }
 
 function update() {
@@ -44,11 +57,10 @@ function update() {
   
   //*************Add leading zero to numbers 9 or below (purely for aesthetics):*************
   //Convert minutes, seconds and milliseconds into a string before displaying it:
-    //Typecast minutes, seconds and milliseconds as a string, use the padStart method a
+    //Typecast minutes, seconds and milliseconds as a string, use the padStart method and signal that for the first two digits, add a zero
   minutes = String(minutes).padStart(2,"0");
-  
-  
-  
+  seconds = String(seconds).padStart(2,"0");
+  milliseconds = String(milliseconds).padStart(2,"0");
   
   //Change the display's content by accessing the textContent of it
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
