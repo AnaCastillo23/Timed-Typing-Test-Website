@@ -83,16 +83,20 @@ function checkCharacterMatching() {
   let correctInput = true;
   
   //Use a loop to traverse thru the characters of the userInput to compare with the test text
-  for (let i = 0; i < )
+  for (let i = 0; i < userInput.length; i++) {
+    if (userInput[i] !== originText[i]) {
+      correctInput = false;
+      break;
+    }
+  }
+  
+  //For handling if all the characters match
+  if (userInput === originText) {
+    stop();
+  } else {
+    testWrapper.style.border = "10px solid #f5ba47";
+  }
 } 
-
-
-
-
-
-
-
-
 
 //*************Event listeners for keyboard input and the reset button:*************
 testArea.addEventListener('input', function() {
