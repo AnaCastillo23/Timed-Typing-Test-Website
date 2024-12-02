@@ -39,6 +39,9 @@ function stop() {
       elapsedTime = Date.now() - startTime;
       isRunning = false;
       testArea.blur(); //Used to remove focus in the testArea for when user has succesfully typed the correct input. Prevents accidental keyboard click when test is done
+      
+      storeBestTimes(elapsedTime);
+      displayBestTimes();
     }
 }
 
@@ -79,9 +82,6 @@ function update() {
   //Change the display's content by accessing the textContent of it
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
   
-  storeBestTimes(elapsedTime);
-  displayBestTimes();
-  
 }
 
 //*************Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)*************
@@ -119,15 +119,20 @@ resetButton.addEventListener('click', reset); //calls the reset() function once 
 function storeBestTimes(time) {
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
   bestTimes.push(time);
-  bestTimes.sort((a,b) => a - b)
+  bestTimes.sort((a,b) => a - b);
   bestTimes = bestTimes.slice(0,3);
-  localStorage.setItem("bestTimes", JSON.stringify(bestTimes));  
+  localStorage.setItem("bestTimes", JSON.stringify(bestTimes));
 }
 
 function displayBestTimes() {
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
   let bestTimesList = document.getElementById("bestTimesList");
   bestTimesList.innerHTML = ""; //Clears any previous list of fastest times
+  
+  if (bestTimes.length === 0) {
+    bestTimesList.textContent = "No best times available.";
+    return;
+  }
   
   bestTimes.forEach(time => {
     let listItem = document.createElement("li");
