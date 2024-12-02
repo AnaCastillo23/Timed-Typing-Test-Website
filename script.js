@@ -28,7 +28,7 @@ function start() {
 
 function stop() {
   //Check if the test text matches with the entered keyboard text to stop timer
-  if (originText.textContent = testArea.textContent && isRunning) {
+  if (originText == testArea && isRunning) {
     clearInterval(timer);
     elapsedTime = Date.now() - startTime;
     isRunning = false;
@@ -41,7 +41,10 @@ function reset() {
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
+  //Resets the value of the timer
   theTimer.textContent = "00:00:00";
+  //Resets the value of the input that user entered in case user finished typing text or they exited out of tying test by clicking the "Start Over" button
+  testArea.value = "";
 }
 
 function update() {
