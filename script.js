@@ -79,9 +79,8 @@ function update() {
   //Change the display's content by accessing the textContent of it
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
   
-  let typingTime = theTimer.textContent;
-  storeBestTimes(typingTime);
-  displayBestTimes()
+  storeBestTimes(elapsedTime);
+  displayBestTimes();
   
 }
 
@@ -128,11 +127,26 @@ function storeBestTimes(time) {
 function displayBestTimes() {
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
   let bestTimesList = document.getElementById("bestTimesList");
-  bestTimesList.innerHTML = "";
+  bestTimesList.innerHTML = ""; //Clears any previous list of fastest times
   
-  for (let time of bestTimes) {
+  bestTimes.forEach(time => {
     let listItem = document.createElement("li");
-    listItem.textContent = time;
+    
+    //Convert elapsedTime to a readable format (minute/second/hundredths) since here is was passed in milliseconds
+    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
+    let seconds = Math.floor(elapsedTime / 1000 % 60);
+    //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
+    let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+    
+    //*************Add leading zero to numbers 9 or below (purely for aesthetics):*************
+    minutes = String(minutes).padStart(2,"0");
+    seconds = String(seconds).padStart(2,"0");
+    milliseconds = String(milliseconds).padStart(2,"0");
+    
+    let formattedTime = `${minutes}:${seconds}:${milliseconds}`;
+    listItem.textContent = formattedTime;
+
     bestTimesList.appendChild(listItem);
-  }
+  });
+  
 }
