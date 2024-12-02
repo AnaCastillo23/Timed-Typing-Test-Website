@@ -133,10 +133,10 @@ function displayBestTimes() {
     let listItem = document.createElement("li");
     
     //Convert elapsedTime to a readable format (minute/second/hundredths) since here is was passed in milliseconds
-    let minutes = Math.floor(elapsedTime / (1000 * 60) % 60);
-    let seconds = Math.floor(elapsedTime / 1000 % 60);
+    let minutes = Math.floor(time / (1000 * 60) % 60);
+    let seconds = Math.floor(time / 1000 % 60);
     //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
-    let milliseconds = Math.floor(elapsedTime % 1000 / 10);
+    let milliseconds = Math.floor(time % 1000 / 10);
     
     //*************Add leading zero to numbers 9 or below (purely for aesthetics):*************
     minutes = String(minutes).padStart(2,"0");
