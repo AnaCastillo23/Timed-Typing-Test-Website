@@ -46,6 +46,7 @@ function stop() {
 function reset() {
   //Clear the timer
   clearInterval(timer);
+  //Also reset the rest of the variables
   startTime = 0;
   elapsedTime = 0;
   isRunning = false;
@@ -108,3 +109,9 @@ testArea.addEventListener('input', function() {
 resetButton.addEventListener('click', reset); //calls the reset() function once the resetButton is pressed
 
 //*************Store best times and display the top three high scores:*************
+
+
+//Function to save the best times using the local storage
+function storeBestTimes() {
+  
+}
