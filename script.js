@@ -9,8 +9,21 @@ const theTimer = document.querySelector(".timer");
 
 
 // Run a standard minute/second/hundredths timer:
-  //Get ID of the display and store a reference to it
-  const clockDisplay = document.getElementById("clock");
+  //Source code inspiration: https://youtu.be/d8-LGhKtzRw?si=O8R5Pxtvj2TZ1toP
+//Get ID of the display and store a reference to it
+const clockDisplay = document.getElementById("clock");
+
+//Create a clock that will hold the ID of the interval so we can keep track of it
+let clock = null; //has no value here
+
+let startTime = 0;
+let elapsedTime = 0;
+//Set to a boolean value where if the clock is running, we set it to true. False by default
+let isRunning = false;
+
+function update() {
+  
+}
 
 
 // Match the text entered with the provided text on the page:
@@ -20,10 +33,19 @@ const theTimer = document.querySelector(".timer");
 
 
 // Start the timer:
-
+function start() {
+  //Need to check if the stopwatch is currently running. If not, we need to set the start time.
+  if (!isRunning) {
+    startTime = Date.now() - elapsedTime;
+  }
+  
+  console.log(startTime);
+}
 
 // Reset everything:
-
+function reset() {
+  
+}
 
 // Event listeners for keyboard input and the reset button:
 
