@@ -77,24 +77,23 @@ function update() {
 }
 
 //*************Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)*************
-//We will need to check text matching character by character
+//We will need to check text matching character by character to give this feedback
 function checkCharacterMatching() {
+  //Store the value of the user's input by accessing it using testArea.value
   let userInput = testArea.value;
-  let correctInput = true;
   
-  //Use a loop to traverse thru the characters of the userInput to compare with the test text
+  //Use a loop to traverse through each of the characters in the userInput to compare with the test text
   for (let i = 0; i < userInput.length; i++) {
-    if (userInput[i] !== originText[i]) {
-      correctInput = false;
-      break;
+    if (userInput[i] === originText[i]) { //If both texts match, we turn the box's border color to #DAFE73 (green to signify a match in the text) 
+      testWrapper.style.border = "10px solid #DAFE73";
+    } else { //Else, we turn the box's border color to #ff5757(green to signify a match in the text) 
+      testWrapper.style.border = "10px solid #ff5757";
     }
   }
   
   //For handling if all the characters match
   if (userInput === originText) {
     stop();
-  } else {
-    testWrapper.style.border = "10px solid #f5ba47";
   }
 } 
 
