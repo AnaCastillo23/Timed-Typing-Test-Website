@@ -1,6 +1,6 @@
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
-const originText = document.querySelector("#origin-text p").textContent;
+const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
 
 //*************Run a standard minute/second/hundredths timer:*************
@@ -27,7 +27,8 @@ function start() {
 }
 
 function stop() {
-  //Check if the test text matches with the entered keyboard text to stop timer
+  //*************Match the text entered with the provided text on the page:*************
+    //If the values of both the user input and the test text are strictly the same (even case sensitivity is checked) then stop the timer
     if (testArea.value === originText && isRunning) {
       clearInterval(timer);
       elapsedTime = Date.now() - startTime;
@@ -70,12 +71,14 @@ function update() {
   theTimer.textContent = `${minutes}:${seconds}:${milliseconds}`;
 }
 
-//*************Match the text entered with the provided text on the page:*************
-
   //Notify user of progress using the text box border coloring (green=correct input is being typed, red=incorrect input is being typed)
 
 //*************Event listeners for keyboard input and the reset button:*************
-testArea.addEventListener('keydown', start);
-resetButton.addEventListener('click', reset);
+testArea.addEventListener('input', function() {
+  start(); //calls the start() function to start the timer
+  stop(); //calls the stop function once both the user input text and test text are an exact match
+});
+
+resetButton.addEventListener('click', reset); //calls the reset() funciton once the resetButton is pressed
 
 //*************Store best times and display the top three high scores:*************
