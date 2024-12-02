@@ -124,25 +124,24 @@ function storeBestTimes(time) { //elapsedTime will be used as a parameter, and i
   bestTimes.sort((a,b) => a - b);
   //Only display the top 3 highest scores/times 
   bestTimes = bestTimes.slice(0,3);
-  //Add the passed key name and value to the localStorage object: https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem 
+  //Add the passed key name and value to the localStorage object: https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem
+  //Use .stringify, a static method that converts a JavaScript value to a JSON string: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
   localStorage.setItem("bestTimes", JSON.stringify(bestTimes));
 }
 
 //Function to display the best times. Converts the passed elapsedTime (which is in milliseconds) into the correct format of mm:ss:mm
 function displayBestTimes() {
+  //Retrieve items from the localStorage using the key "bestTimes"  (which returns a string)
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
+  //Get the unordered list in the HTML code by its ID of "bestTimesList" and store it into a variable
   let bestTimesList = document.getElementById("bestTimesList");
-  bestTimesList.innerHTML = ""; //Clears any previous list of fastest times
+  bestTimesList.innerHTML = ""; //Clears any previous list of fastest times (clears content of the unordered list of ID "bestTimesList") 
   
-  if (bestTimes.length === 0) {
-    bestTimesList.textContent = "No best times available.";
-    return;
-  }
-  
+  //Create a forEach loop for each of the times stored in the localStorage object and append it to the list by creating a list element using .createElement("li"); 
   bestTimes.forEach(time => {
     let listItem = document.createElement("li");
     
-    //Convert elapsedTime to a readable format (minute/second/hundredths) since here is was passed in milliseconds
+    //Convert elapsedTime to a readable format (minute/second/hundredths) since in the function it was passed in milliseconds
     let minutes = Math.floor(time / (1000 * 60) % 60);
     let seconds = Math.floor(time / 1000 % 60);
     //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
@@ -153,9 +152,12 @@ function displayBestTimes() {
     seconds = String(seconds).padStart(2,"0");
     milliseconds = String(milliseconds).padStart(2,"0");
     
+    //Order the string of numbers into the format mm:ss:mm
     let formattedTime = `${minutes}:${seconds}:${milliseconds}`;
+    //Set the textContent of the unordered list to the string of numbers that were ordered in the format mm:ss:mm
     listItem.textContent = formattedTime;
 
+    //Add the listElement as a child of the bestTimesList list
     bestTimesList.appendChild(listItem);
   });
   
