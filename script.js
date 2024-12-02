@@ -9,7 +9,8 @@ const theTimer = document.querySelector(".timer");
 
 
 // Run a standard minute/second/hundredths timer:
-
+  //Get ID of the display and store a reference to it
+  const clockDisplay = document.getElementById("clock");
 
 
 // Match the text entered with the provided text on the page:
