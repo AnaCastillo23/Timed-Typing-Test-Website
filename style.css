@@ -38,7 +38,12 @@ h1, p, h4 {
   color: white;
   font-weight: normal;
 }
-
+.wpm-score {
+  font-weight: bold;
+  font-size: 45px;
+  text-align: center;
+  color: #DAFE73;
+}
 
 .text-to-test {
   font-family: "Geist Mono", monospace;
@@ -139,15 +144,16 @@ body {
 .masthead h1 {
     text-align: left;
     font-size: 30px;
-  font-family:"Poppins", sans-serif; 
+  font-family:"Poppins", sans-serif;
+  font-weight: bold  
 }
 
 .intro {
     padding: 2em 2em;
     color: #ffffff;
     background: #2B3D49;
-  padding-top: 75px;
-   padding-bottom: 75px;
+  padding-top: 50px;
+   padding-bottom: 50px;
 }
 
 .intro p,
