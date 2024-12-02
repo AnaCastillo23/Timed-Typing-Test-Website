@@ -2,8 +2,6 @@ const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
 const originText = document.querySelector("#origin-text p").innerHTML;
 const resetButton = document.querySelector("#reset");
-const theTimer = document.querySelector(".timer");
-
 
 // Add leading zero to numbers 9 or below (purely for aesthetics):
 
@@ -11,10 +9,10 @@ const theTimer = document.querySelector(".timer");
 // Run a standard minute/second/hundredths timer:
   //Source code inspiration: https://youtu.be/d8-LGhKtzRw?si=O8R5Pxtvj2TZ1toP
 //Get ID of the display and store a reference to it
-const clockDisplay = document.getElementById("clock");
+const theTimer = document.querySelector(".timer");
 
 //Create a clock that will hold the ID of the interval so we can keep track of it
-let clock = null; //has no value here
+let timer = null; //has no value here
 
 let startTime = 0;
 let elapsedTime = 0;
@@ -48,6 +46,8 @@ function reset() {
 }
 
 // Event listeners for keyboard input and the reset button:
+testArea.
+resetButton.addEventListener("click", reset());
 
 
 //Store best times and display the top three high scores:
