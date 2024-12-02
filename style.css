@@ -32,9 +32,11 @@ h6 {
 	clear: both;
 }
 
-p {
+p, h4 {
 	margin-bottom: 1.5em;
   font-family: "Poppins", sans-serif;
+  color: white;
+  font-weight: normal;
 }
 
 .text-to-test {
@@ -208,4 +210,19 @@ body {
     color: black;
     background-color: #A2BE51;
     cursor: pointer;
+}
+
+
+.legend-item {
+  display: block;
+}
+
+.square {
+  height: 15px;
+  width: 15px;
+  background-color: #555555;  
+}
+
+.legend-item-title {
+  margin: 0;
 }
