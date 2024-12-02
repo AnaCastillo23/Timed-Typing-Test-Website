@@ -28,7 +28,7 @@ function start() {
 
 function stop() {
   //Check if the test text matches with the entered keyboard text to stop timer
-  if (originText == testArea && isRunning) {
+  if (originText.length === testArea.length && isRunning) {
     clearInterval(timer);
     elapsedTime = Date.now() - startTime;
     isRunning = false;
