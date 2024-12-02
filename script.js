@@ -1,6 +1,6 @@
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
-const originText = document.querySelector("#origin-text p").innerHTML;
+const originText = document.querySelector("#origin-text p").textContent;
 const resetButton = document.querySelector("#reset");
 
 //*************Run a standard minute/second/hundredths timer:*************
@@ -28,12 +28,13 @@ function start() {
 
 function stop() {
   //Check if the test text matches with the entered keyboard text to stop timer
-  if (originText.length === testArea.length && isRunning) {
-    clearInterval(timer);
-    elapsedTime = Date.now() - startTime;
-    isRunning = false;
-  }
+    if (testArea.value === originText && isRunning) {
+      clearInterval(timer);
+      elapsedTime = Date.now() - startTime;
+      isRunning = false;
+    }
 }
+
 // Reset everything:
 function reset() {
   //Clear the timer
