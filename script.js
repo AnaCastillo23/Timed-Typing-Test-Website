@@ -113,18 +113,22 @@ testArea.addEventListener('input', function() {
 resetButton.addEventListener('click', reset); //calls the reset() function once the resetButton is pressed
 
 //*************Store best times and display the top three high scores:*************
-
-
 //Function to save the best times using the local storage
-function storeBestTimes(time) {
+function storeBestTimes(time) { //elapsedTime will be used as a parameter, and it is passed in milliseconds by default.
+  //Use JSON.parse(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
+    //This is to parse a JSON string to construct a localStorage object
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
+  //Add element to the end of the array using .push() method: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push
   bestTimes.push(time);
+  //Sort times from ascending to descending order to display the best time at the top of the list and the following times afterwards
   bestTimes.sort((a,b) => a - b);
+  //Only display the top 3 highest scores/times 
   bestTimes = bestTimes.slice(0,3);
+  //Add the passed key name and value to the localStorage object: https://developer.mozilla.org/en-US/docs/Web/API/Storage/setItem 
   localStorage.setItem("bestTimes", JSON.stringify(bestTimes));
 }
 
-//Function to 
+//Function to display the best times. Converts the passed elapsedTime (which is in milliseconds) into the correct format of mm:ss:mm
 function displayBestTimes() {
   let bestTimes = JSON.parse(localStorage.getItem("bestTimes")) || [];
   let bestTimesList = document.getElementById("bestTimesList");
