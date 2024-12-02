@@ -161,4 +161,7 @@ function displayBestTimes() {
     bestTimesList.appendChild(listItem);
   });
   
+  //IMPORTANT: the local storage might need to be manually cleared if the top 3 best times are not displaying/are not displaying correctly as it might get
+  //filled with old or corrupted data. To fix this, open DevTools and run the below command:
+    //localStorage.clear();
 }
