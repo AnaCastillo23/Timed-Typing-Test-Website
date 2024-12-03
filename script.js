@@ -171,10 +171,14 @@ function displayBestTimes() {
 }
 
 function calculateWPM() {
+  //Store the value of the types user input text into a variable
   const userInputText = testArea.value;
+  //Store the word count by splitting the typed text into an array using spaces as chopping points and get the length using .lenght
   const wordCount = userInputText.split(" ").length;
+  //Convert the elapsedTime from milliseconds to minutes by dividing by 60000
   const timeInMinutes = elapsedTime / 60000;
-  
+  //Round up the result from dividing the wordCount / elapsedTimeInMinutes (this is the wpm formula)
   const wpm = Math.round(wordCount / timeInMinutes);
-  wpmDisplay.textContent = `WPM: ${wpm}`;
+  //Display this result to the HTML element I allocated in the HTML file
+  wpmDisplay.textContent = `wpm: ${wpm}`;
 }

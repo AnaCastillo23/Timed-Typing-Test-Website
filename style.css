@@ -37,11 +37,13 @@ h1, p, h4 {
   color: white;
   font-weight: normal;
 }
-.wpm-score {
+#wpm {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 45px;
   text-align: center;
+  font-weight: bold;
   color: #DAFE73;
+  margin-top: 20px;
 }
 
 .text-to-test {
