@@ -144,7 +144,8 @@ body {
     text-align: left;
     font-size: 30px;
   font-family:"Poppins", sans-serif;
-  font-weight: bold  
+  font-weight: bold;
+  color: #DAFE73;
 }
 
 .intro {
@@ -161,6 +162,7 @@ body {
     max-width: 550px;
 }
 
+Styles the test area
 .test-area {
     margin-bottom: 4em;
     padding: 0 2em;
@@ -194,13 +196,15 @@ body {
     flex-wrap: wrap;
 }
 
+/* Styles the timer */
 .timer {
     font-size: 2em;
     font-weight: normal;
     font-family: "Geist Mono", monospace;
-  color: white;
+    color: white;
 }
 
+/* Styles the reset button */
 #reset {
     color: black;
     background: #DAFE73;
@@ -217,6 +221,7 @@ body {
     cursor: pointer;
 }
 
+/* Styles the legend of colors */
 .legend-item {
   display: inline-flex;
   align-items: center;
@@ -248,9 +253,12 @@ body {
 .legend-item-title {
   margin: 0;
 }
+
+/* Styles Leader Board */
 .top-3-score-header {
   color: #DAFE73;
   font-weight: bold;
+  margin-top: 50px;
 }
 
 #bestTimesList {
@@ -258,5 +266,6 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 18px;
   font-weight: normal;
-  text-align
+  text-align: center;
+  list-style: none;
 }
