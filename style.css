@@ -135,6 +135,7 @@ body {
     background: #1E2C35;
 }
 
+/* Styles the site's header */
 .masthead {
     padding: 1em 2em;
     color: white;
@@ -148,6 +149,7 @@ body {
   color: #DAFE73;
 }
 
+/* Styles the intro paragraph */
 .intro {
     padding: 2em 2em;
     color: #ffffff;
@@ -156,13 +158,14 @@ body {
    padding-bottom: 50px;
 }
 
+
 .intro p,
 .test-area {
     margin: 0 auto;
     max-width: 550px;
 }
 
-Styles the test area
+/* Styles the test area */
 .test-area {
     margin-bottom: 4em;
     padding: 0 2em;

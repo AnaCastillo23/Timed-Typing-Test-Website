@@ -1,3 +1,7 @@
+//IMPORTANT: the local storage might need to be manually cleared if the top 3 best times are not displaying/are not displaying correctly as it might get
+  //filled with old or corrupted data. To fix this, open DevTools and run the below command:
+    //localStorage.clear();
+
 const testWrapper = document.querySelector(".test-wrapper");
 const testArea = document.querySelector("#test-area");
 const originText = document.querySelector("#origin-text p").innerHTML;
@@ -13,6 +17,9 @@ let startTime = 0;
 let elapsedTime = 0;
 //Set to a boolean value where if the clock is running, we set it to true. False by default
 let isRunning = false;
+
+let wordsTyped = 0;
+let wpmDisplay = document.querySelector("#wpm");
 
 //Start the timer:
 function start() {
@@ -42,6 +49,7 @@ function stop() {
       
       storeBestTimes(elapsedTime);
       displayBestTimes();
+      calculateWPM();
     }
 }
 
@@ -160,8 +168,13 @@ function displayBestTimes() {
     //Add the listElement as a child of the bestTimesList list
     bestTimesList.appendChild(listItem);
   });
+}
+
+function calculateWPM() {
+  const userInputText = testArea.value;
+  const wordCount = userInputText.split(" ").length;
+  const timeInMinutes = elapsedTime / 60000;
   
-  //IMPORTANT: the local storage might need to be manually cleared if the top 3 best times are not displaying/are not displaying correctly as it might get
-  //filled with old or corrupted data. To fix this, open DevTools and run the below command:
-    //localStorage.clear();
+  const wpm = Math.round(wordCount / timeInMinutes);
+  wpmDisplay.textContent = `WPM: ${wpm}`;
 }
