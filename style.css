@@ -42,7 +42,8 @@ h1, p, h4 {
   font-size: 50px;
   text-align: center;
   color: #DAFE73;
-  margin-top: 20px;
+  margin-top: 50px;
+  font-family: "Poppins", sans-serif;
 }
 
 .text-to-test {
@@ -261,7 +262,7 @@ body {
 /* Styles Leader Board */
 .top-3-score-header {
   color: #DAFE73;
-  font-weight: bold;
+  font-weight: normal;
   margin-top: 50px;
 }
 

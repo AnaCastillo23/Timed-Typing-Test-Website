@@ -180,5 +180,5 @@ function calculateWPM() {
   //Round up the result from dividing the wordCount / elapsedTimeInMinutes (this is the wpm formula)
   const wpm = Math.round(wordCount / timeInMinutes);
   //Display this result to the HTML element I allocated in the HTML file
-  wpmDisplay.textContent = `wpm: ${wpm}`;
+  wpmDisplay.textContent = `Words per Minute: ${wpm}`;
 }
