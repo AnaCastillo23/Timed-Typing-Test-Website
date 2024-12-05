@@ -67,6 +67,8 @@ function reset() {
   testArea.value = "";
   //Reset the border color to gray when resetButton is pressed
   testWrapper.style.border = "10px solid grey";
+  //To reset the text content of words per minute
+  wpmDisplay.textContent = "";
 }
 
 function update() {
