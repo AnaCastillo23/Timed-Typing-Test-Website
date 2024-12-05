@@ -147,11 +147,11 @@ function displayBestTimes() {
   let bestTimesList = document.getElementById("bestTimesList");
   bestTimesList.innerHTML = ""; //Clears any previous list of fastest times (clears content of the unordered list of ID "bestTimesList") 
   
-  //Create a forEach loop for each of the times stored in the localStorage object and append it to the list by creating a list element using .createElement("li"); 
+  //Create a forEach loop to loop through each of the times stored in the localStorage object and append it to the list by creating a list element using .createElement("li"); 
   bestTimes.forEach(time => {
     let listItem = document.createElement("li");
     
-    //Convert elapsedTime to a readable format (minute/second/hundredths) since in the function it was passed in milliseconds
+    //Convert elapsedTime to a readable format (minute/second/hundredths) since in the function it was passed in milliseconds by default
     let minutes = Math.floor(time / (1000 * 60) % 60);
     let seconds = Math.floor(time / 1000 % 60);
     //elapsedTime is already in milliseconds which is 4 digits, so divide it by 10 to get only the first two digits.
