@@ -123,7 +123,7 @@ testArea.addEventListener('input', function() {
 resetButton.addEventListener('click', reset); //calls the reset() function once the resetButton is pressed
 
 //*************Store best times and display the top three high scores:*************
-//Function to save the best times using the local storage
+//Function to save the best times using the local storage : https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 function storeBestTimes(time) { //elapsedTime will be used as a parameter, and it is passed in milliseconds by default.
   //Use JSON.parse(): https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/parse
     //This is to parse a JSON string to construct a localStorage object
